@@ -1,0 +1,167 @@
+<!DOCTYPE html><html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Joyeuse Saint-Valentin ❤️</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --rose: #e63946;
+      --soft-rose: #fff1f3;
+      --dark: #1f1f1f;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(180deg, #fff, var(--soft-rose));
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    header {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+    }
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    header p {
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+    }
+    .heart {
+      font-size: 3rem;
+      animation: beat 1.5s infinite;
+      color: var(--rose);
+    }
+    @keyframes beat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+    section {
+      padding: 4rem 1.5rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      margin-bottom: 2rem;
+    }
+    h2 {
+      font-family: 'Playfair Display', serif;
+      color: var(--rose);
+      margin-bottom: 1rem;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+    .gallery div {
+      background: var(--soft-rose);
+      border-radius: 12px;
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      color: #888;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+      color: #777;
+    }
+    button {
+      background: var(--rose);
+      color: #fff;
+      border: none;
+      padding: 0.9rem 1.5rem;
+      border-radius: 999px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(230,57,70,0.4);
+    }
+  </style>
+</head>
+<body>  <header>
+    <div>
+      <div class="heart">❤️</div>
+      <h1>Joyeuse Saint-Valentin</h1>
+      <p>
+        À toi, mon amour. Ce site est une petite preuve que chaque battement de mon cœur pense à toi.
+      </p>
+      <button onclick="document.getElementById('message').scrollIntoView({behavior:'smooth'})">
+        Lire mon message 💌
+      </button>
+    </div>
+  </header>  <audio id="bg-music" autoplay loop>
+    <source src="ben-decca-se-oa-nu.mp3" type="audio/mpeg">
+    Ton navigateur ne supporte pas la musique.
+  </audio>  <section id="message">
+    <div class="card">
+      <h2>Mon message pour toi, Victoire Reine</h2>
+      <p>
+        Victoire Reine, depuis que tu es entrée dans ma vie, tout a changé.
+        Tes sourires illuminent mes journées, ta présence apaise mes nuits
+        et ton amour donne un sens à chaque instant.
+        <br/><br/>
+        En cette Saint‑Valentin, je voulais t'offrir quelque chose d'unique,
+        quelque chose qui dure plus qu'un bouquet de fleurs.
+        <strong>Je t'aime.</strong>
+      </p>
+    </div>
+  </section>  <section>
+    <div class="card">
+      <h2>Nos plus beaux souvenirs</h2>
+      <div class="gallery">
+        <img src="photo1.jpg" alt="Nous deux" style="width:100%; border-radius:12px; object-fit:cover;" />
+        <img src="photo2.jpg" alt="Nous deux" style="width:100%; border-radius:12px; object-fit:cover;" />
+      </div>
+    </div>
+  </section>  <section>
+    <div class="card" style="text-align:center;">
+      <h2>Victoire Reine…</h2>
+      <button onclick="showValentine()">Veux‑tu être ma Valentine ? 💖</button>
+      <p id="answer" style="margin-top:1.5rem; font-weight:500;"></p>
+    </div>
+  </section>  <section>
+    <div class="card">
+      <h2>Message secret 🔐</h2>
+      <input type="password" id="secretCode" placeholder="Entre le mot secret" style="padding:0.7rem; width:100%; border-radius:8px; border:1px solid #ccc; margin-bottom:1rem;" />
+      <button onclick="revealSecret()">Ouvrir le message</button>
+      <p id="secretMessage" style="display:none; margin-top:1rem;">
+        Victoire Reine, si tu lis ceci, sache que je te choisis aujourd'hui,
+        demain et pour toute la vie. ❤️
+      </p>
+    </div>
+  </section>  <footer>
+    Fait avec ❤️ rien que pour Victoire Reine — Saint‑Valentin
+  </footer>  <script>
+    function showValentine() {
+      document.getElementById('answer').innerText = "J'espérais de tout mon cœur que tu dises OUI 💕";
+    }
+    function revealSecret() {
+      const code = document.getElementById('secretCode').value;
+      if (code.toLowerCase() === 'amour') {
+        document.getElementById('secretMessage').style.display = 'block';
+      } else {
+        alert('Mot secret incorrect 💔');
+      }
+    }
+  </script></body>
+</html>
